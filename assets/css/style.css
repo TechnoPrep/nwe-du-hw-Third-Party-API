@@ -1,0 +1,52 @@
+
+
+
+.custom-text-right{
+    text-align: right;
+}
+
+.custom-no-padding-right {
+    padding-right: 0px;
+}
+
+.custom-w-100{
+    min-width: 100%;
+}
+
+.custom-line-height-30{
+    line-height: 30px;
+}
+
+.custom-text-area{
+    resize:none;
+}
+
+.custom-align-middle{
+    display: flex;
+    align-content: center;
+}
+
+.custom-hr{
+    height: 2px !important;
+}
+
+.custom-no-margin{
+    margin-bottom: 0px !important;
+}
+
+.custom-btn{
+    border-top-right-radius: 20%;
+    border-bottom-right-radius: 20%;
+}
+
+.isAfter {
+    background-color: green;
+}
+
+.isCurrent {
+    background-color: red;
+}
+
+.isBefore {
+    background-color: grey;
+}
