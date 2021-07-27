@@ -5,26 +5,60 @@ let currentTime = moment().format('H');
 
 console.log(currentTime);
 
+console.log(typeof(currentTime));
+
+
 function eventMgmt(){
 
-    currentTime.toString();
+    timeInt = parseInt(currentTime);
 
-    let slotId = document.getElementById('9-slot')
-    let rowData = slotId.outerHTML;
-    // let htmlData = 
+    console.log(typeof(currentTime));
 
-    // if(){
-    //     console.log(`5PM is after ${currentTime}`);
-    // }
+    for (let i = 0; i < 24; i++) {
+    
+        if($(`#event${i}`).length){
+        
+            let htmlData = getIdAsString(`event${i}`);
+            
+            let slotId = htmlData.attr('id').replace('event','');
+
+            let idInt = parseInt(slotId)
+            
+            console.log(slotId);
+
+            if(idInt < timeInt){
+                $(`#event${slotId}`).toggleClass('isBefore');
+                console.log(`${slotId} is less than ${currentTime}`);
+            
+            }
+
+            if(idInt === timeInt){
+                $(`#event${slotId}`).toggleClass('isCurrent');
+                console.log(`${slotId} is the same as ${currentTime}`);
+            
+            }
+            
+            if (idInt > timeInt){
+                $(`#event${slotId}`).toggleClass('isAfter');
+                console.log(`${slotId} is greater than ${currentTime}`);
+            }   
+    
+        }
+    
+    }
+
 }
+
+eventMgmt();
 
 function getIdAsString(elementId){
 
-    let initalId = document.getElementById(elementId);
-    let rowData = initalId.outerHTML;
-    let htmlData = $(rowData);
+        let initalId = document.getElementById(elementId);
+        let rowData = initalId.outerHTML;
+        let htmlData = $(rowData);
 
-    return htmlData;
+        return htmlData;
+
 }
 
 function saveToLocal(buttonID) {
@@ -45,8 +79,6 @@ function saveToLocal(buttonID) {
 function displayEvents(){
 
     eventsObj = JSON.parse(localStorage.getItem(`${dateValue}`));
-
-    console.log(Object.keys(eventsObj).length);
     
     for (let i = 0; i < 24; i++) {
         
