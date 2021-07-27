@@ -3,16 +3,10 @@ let dateValue = moment().format('MDYY');
 
 let currentTime = moment().format('H');
 
-console.log(currentTime);
-
-console.log(typeof(currentTime));
-
 
 function eventMgmt(){
 
     timeInt = parseInt(currentTime);
-
-    console.log(typeof(currentTime));
 
     for (let i = 0; i < 24; i++) {
     
@@ -23,24 +17,16 @@ function eventMgmt(){
             let slotId = htmlData.attr('id').replace('event','');
 
             let idInt = parseInt(slotId)
-            
-            console.log(slotId);
 
             if(idInt < timeInt){
                 $(`#event${slotId}`).toggleClass('isBefore');
-                console.log(`${slotId} is less than ${currentTime}`);
             
-            }
-
-            if(idInt === timeInt){
+            }else if(idInt === timeInt){
                 $(`#event${slotId}`).toggleClass('isCurrent');
-                console.log(`${slotId} is the same as ${currentTime}`);
             
-            }
-            
-            if (idInt > timeInt){
+            } else {
                 $(`#event${slotId}`).toggleClass('isAfter');
-                console.log(`${slotId} is greater than ${currentTime}`);
+
             }   
     
         }
