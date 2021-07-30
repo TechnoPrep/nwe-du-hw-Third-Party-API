@@ -5,7 +5,7 @@ This application is built to help me keep track of my tasks through out the day 
 
 ## Screenshot
 
-![Nathaniel's Project Tracker](#)
+![Nathaniel's Project Tracker](https://github.com/TechnoPrep/nwe-du-hw-Third-Party-API/blob/main/screenshots/Project_Tracker.png)
 
 ## Website Address
 
