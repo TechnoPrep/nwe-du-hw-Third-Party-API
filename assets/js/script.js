@@ -30,20 +30,27 @@ function eventMgmt(){
             }   
     
         }
-    
+                   
     }
 
 }
 
 eventMgmt();
 
+
+$('.custom-btn').click(function(event){
+    event.preventDefault();
+    btnId = this.id;
+    saveToLocal(btnId);
+})
+
 function getIdAsString(elementId){
 
-        let initalId = document.getElementById(elementId);
-        let rowData = initalId.outerHTML;
-        let htmlData = $(rowData);
+    let initalId = document.getElementById(elementId);
+    let rowData = initalId.outerHTML;
+    let htmlData = $(rowData);
 
-        return htmlData;
+    return htmlData;
 
 }
 
@@ -53,7 +60,7 @@ function saveToLocal(buttonID) {
 
     let textAreaId = htmlData.attr('id').replace('-btn','');
 
-    let tempObj = JSON.parse(localStorage.getItem(`${dateValue}`));
+    let tempObj = JSON.parse(localStorage.getItem(`${dateValue}`)) || {};
 
     let objKey = `${textAreaId}`;
 
@@ -78,12 +85,6 @@ function displayEvents(){
 }
 
 displayEvents();
-
-$('.custom-btn').click(function(event){
-    event.preventDefault();
-    btnId = this.id;
-    saveToLocal(btnId);
-})
 
 function clock(){
 
